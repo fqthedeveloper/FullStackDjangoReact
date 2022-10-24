@@ -30,8 +30,8 @@ function Header() {
                                             Dropdown
                                         </a>
                                         <ul className="dropdown-menu dropdown-menu-primary">
-                                            <li><a className="dropdown-item" href="/#">Gallery</a></li>
-                                            <li><a className="dropdown-item" href="/#">Gallery Image</a></li>
+                                            <li><Link to="/gallery" className="dropdown-item">Gallery</Link></li>
+                                            <li><Link className="dropdown-item" to="/custamer">Review</Link></li>
                                             <li>
                                                 <hr className="dropdown-divider" />
                                             </li>

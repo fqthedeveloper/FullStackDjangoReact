@@ -2,6 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Service from './Service'
+import Gallery from './Gallery'
+import {Planets} from 'react-preloaders2';
+
 
 const baseUrl = 'http://127.0.0.1:8000/api';
 
@@ -9,6 +12,8 @@ const baseUrl = 'http://127.0.0.1:8000/api';
 function Home() {
 
     const [bannerData, setBannerData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
 
@@ -26,9 +31,22 @@ function Home() {
         }
     }, []);
 
+    useEffect(() => {
+        fetch(baseUrl + '/banner/')
+          .then(response => response.json())
+          .then(json => {
+            setLoading(false);
+          })
+          .catch(err => {
+            setLoading(false);
+          });
+      }, []);
+
     return (
 
+        
         <div className='App'>
+            <Planets customLoading={loading} animation="slide" time={3000} />
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
 
                 <div className="carousel-inner">
@@ -50,9 +68,14 @@ function Home() {
                 </button>
 
             </div>
-            <div class="container mt-4 border-dark border-0">
+            <div className="container mt-4 border-dark border-0">
                 <Service />
             </div>
+
+            <div className="container mt-4 border-dark border-0">
+                <Gallery />
+            </div>
+            
 
         </div>
 

@@ -6,6 +6,9 @@ import Contact from './Contact';
 import { Routes as Switch, Route } from 'react-router-dom';
 import "../App.css"
 import Service from './Service';
+import CustamersReview from './CustamersReview';
+import Gallery from './Gallery';
+import Proudect from './Proudect';
 
 
 function Main() {
@@ -16,9 +19,10 @@ function Main() {
             
             <Route path="/" element={<Home />} />
             <Route path="/service" element={<Service />} />
-
             <Route path="/contact" element={<Contact />} />
-            {/* <Route path="/page/:page_id/:page_slug" element={<Page />} /> */}
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/custamer" element={<CustamersReview />} />
+            <Route path="/proudect" element={<Proudect />} />
 
         </Switch>
         <Footer />

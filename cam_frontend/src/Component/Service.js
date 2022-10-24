@@ -27,20 +27,26 @@ function Service() {
     }, []);
 
     return (
-        <div className='App'>
-        <div className='row row-cols-3 row-cols-md-3 g-4'>
+            <div className='App'>
+                <div className="container">
+                    <div className="intro">
+                        <h2 className="text-center"> Service </h2>
+                        <p className="text-center"> </p>
+                    </div>
+                    <div className='row row-cols-3 row-cols-md-3 g-4'>
 
-            {serviceData && serviceData.map((service, index) =>
-                <div className="card">
-                    <img key={index} src={service.img} className="card-img-top" alt={service.alt_text} />
-                    <div className="card-body">
-                        <h5 key={index} className="card-title">{service.title}</h5>
-                        <p className="card-text">{service.detail}</p>
+                        {serviceData && serviceData.map((service, index) =>
+                            <div className="card">
+                                <img key={index} src={service.img} className="card-img-top" alt={service.alt_text} />
+                                <div className="card-body">
+                                    <h5 key={index} className="card-title">{service.title}</h5>
+                                    <p className="card-text">{service.detail}</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-            )}
-        </div>
-        </div>
+            </div>
     );
 }
 
