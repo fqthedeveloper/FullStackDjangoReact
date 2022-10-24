@@ -3,11 +3,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import BannersSerializer, ServicesSerializer, GallerySerializer, GalleryImageSerializer, FlatPagesSerializer, ContactSerializer
+from .serializers import BannersSerializer, CustamerSerializer, ServicesSerializer, GallerySerializer, ContactSerializer , PrudectSerializer
 from rest_framework import generics
 from rest_framework import permissions
 from . import models
-from django.contrib.flatpages.models import FlatPage
+from django.core.mail import send_mail
+from django.conf import settings
+
+from cam_backend.settings import EMAIL_HOST_USER
 
 
 
@@ -27,32 +30,33 @@ class GalleryList(generics.ListCreateAPIView) :
     serializer_class = GallerySerializer
     
 
-class GalleryImageList(generics.ListCreateAPIView) :
-    queryset = models.GalleryImage.objects.all()
-    serializer_class = GalleryImageSerializer
-
-    def get_queryset(self) :
-        gallery_id = self.kwargs['gallery_id']
-        gallery = models.Gallery.objects.get(pk=gallery_id)
-        return models.GalleryImage.objects.filter(gallery=gallery)
-    
-
-class FlatPagesList(generics.ListAPIView) :
-    queryset = FlatPage.objects.all()
-    serializer_class = FlatPagesSerializer
-    
-
-class FlatPageDeatil(generics.RetrieveAPIView) :
-    queryset = FlatPage.objects.all()
-    serializer_class = FlatPagesSerializer
-
-
-    def get_queryset(self) :
-        page_id = self.kwargs['page_id']
-        page = FlatPage.objects.get(pk=page_id)
-        return FlatPage.objects.filter(page=page)
-
 
 class ContactList(generics.ListCreateAPIView) :
     queryset = models.Contact.objects.all()
     serializer_class = ContactSerializer
+
+    def save(self, *args, **kwargs):
+        subject = 'welcome to '
+        message = f'Hi {models.Contact.full_name}, thank you for registering in.'
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = {models.Contact.email}
+        send_mail( subject, message, email_from, recipient_list, fail_silently=False )
+        return super(models.Contact,self).save(*args,**kwargs)
+
+
+class ProudctList(generics.ListCreateAPIView):
+    queryset = models.Prudect.objects.all()
+    serializer_class = PrudectSerializer
+
+
+
+class Custameradd(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Custamer.objects.all()
+    serializer_class = CustamerSerializer
+
+
+
+class Custamerlist(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Custamer.objects.all()
+    serializer_class = CustamerSerializer
+

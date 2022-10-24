@@ -1,9 +1,8 @@
+from enum import unique
+from time import timezone
 from django.db import models
 from django.utils.html import mark_safe
-from django.core.mail import send_mail
-from django.conf import settings
-
-from cam_backend.settings import EMAIL_HOST_USER
+from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 
 class Banners(models.Model) :
@@ -32,24 +31,11 @@ class Services(models.Model) :
         return mark_safe('<img src="%s" width="80" />' % (self.img.url))
 
 class Gallery(models.Model) :
-    title = models.CharField(max_length=150)
-    detail = models.TextField()
+    text_alt = models.TextField()
     img = models.ImageField(upload_to="gallery/", null=True)
 
     def __str__(self) :
         return self.title
-
-    def image_tag(self) :
-        return mark_safe('<img src="%s" width="80" />' % (self.img.url))
-
-
-class GalleryImage(models.Model) :
-    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, null=True)
-    alt_text = models.CharField(max_length=150)
-    img = models.ImageField(upload_to="gallery_imgs/", null=True)
-
-    def __str__(self) :
-        return self.alt_text
 
     def image_tag(self) :
         return mark_safe('<img src="%s" width="80" />' % (self.img.url))
@@ -65,10 +51,45 @@ class Contact(models.Model):
     def __str__(self) :
         return self.full_name
     
-    def save(self, *args, **kwargs):
-        subject = 'welcome to '
-        message = f'Hi {Contact.full_name}, thank you for registering in.'
-        email_from = settings.EMAIL_HOST_USER
-        recipient_list = {Contact.email}
-        send_mail( subject, message, email_from, recipient_list, fail_silently=False )
-        return super(Contact,self).save(*args,**kwargs)
+
+class Custamer(models.Model) :
+    custamer_name = models.CharField(max_length=150)
+    reviwe = models.CharField(max_length=200)
+    img = models.ImageField(upload_to="Custamer_imgs/", null=True)
+    alt_text = models.CharField(max_length=20)
+
+    # def c_no_of_ratings(self):
+    #     ratings = Rating.objects.filter(custamer=self)
+    #     return len(ratings)
+    
+    # def avg_rating(self):
+    #     sum = 0
+    #     ratings = Rating.objects.filter(custamer=self)
+    #     for rating in ratings:
+    #         sum += rating
+    #     if len(ratings) > 0:
+    #         return sum / len(ratings)
+    #     else:
+    #         return 0
+
+    def __str__(self) :
+        return self.alt_text
+
+    def image_tag(self) :
+        return mark_safe('<img src="%s" width="80" />' % (self.img.url))
+
+
+class Prudect(models.Model) :
+    p_name = models.CharField(max_length=150)
+    details = models.CharField(max_length=200)
+    img = models.ImageField(upload_to="Prudect_imgs/", null=True)
+    alt_text = models.CharField(max_length=20)
+
+class Rating(models.Model):
+    custamer = models.ForeignKey(Custamer, on_delete=models.CASCADE)
+    prudect = models.ForeignKey(Prudect, on_delete=models.CASCADE)
+    stars = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
+
+    # class Meta:
+    #     unique_together = (('prudect','custamer'),)
+    #     index_together = (('prudect','custamer'),)

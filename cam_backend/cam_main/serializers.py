@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from . import models
-from django.contrib.flatpages.models import FlatPage
 
 
 class BannersSerializer(serializers.ModelSerializer):
@@ -18,21 +17,30 @@ class ServicesSerializer(serializers.ModelSerializer) :
 class GallerySerializer(serializers.ModelSerializer) :
     class Meta :
         model = models.Gallery
-        fields = ['id','title', 'detail','img']
+        fields = ['id','img', 'text_alt']
 
 
-class GalleryImageSerializer(serializers.ModelSerializer) :
-    class Meta :
-        model = models.GalleryImage
-        fields = ['id', 'gallery', 'alt_text', 'img']
-
-class FlatPagesSerializer(serializers.ModelSerializer) :
-    class Meta :
-        model = FlatPage
-        fields = ['id', 'title', 'content','url']
 
 
 class ContactSerializer(serializers.ModelSerializer) :
     class Meta :
         model = models.Contact
         fields = ['id', 'full_name', 'email','phone_number','massege', 'add_time']
+
+
+class CustamerSerializer(serializers.ModelSerializer) :
+    class Meta :
+        model = models.Custamer
+        fields = ['id', 'custamer_name', 'reviwe','img','alt_text']
+
+
+class PrudectSerializer(serializers.ModelSerializer) :
+    class Meta :
+        model = models.Prudect
+        fields = ['id', 'p_name', 'details','img','alt_text']
+
+
+class RatingSerializer(serializers.ModelSerializer) :
+    class Meta :
+        model = models.Rating
+        fields = ['id', 'custamer', 'prudect','stars']
