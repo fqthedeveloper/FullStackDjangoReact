@@ -31,13 +31,13 @@ function Gallery() {
                 <div className="photo-gallery">
                     <div className="container">
                         <div className="intro">
-                            <h2 className="text-center mt-4"> Gallery </h2>
+                            <h2 className="text-center md-1"> Gallery </h2>
                             <p className="text-center"> </p>
                         </div>
                         <div className="row photos">
                             
                         {galleryData && galleryData.map((gallery, index) =>
-                            <div className="col-sm-6 col-md-4 col-lg-3 item"><Link to={gallery.img} data-lightbox="photos"><img key={index} src={gallery.img} className="img-fluid" alt={gallery.detail} width='500px' height='500px' /></Link></div>
+                            <div className="col-sm-6 col-md-4 col-lg-3 item"><Link to={gallery.img} data-lightbox="photos" ><img key={index.id} src={gallery.img}  className="img-fluid" alt={gallery.detail} width='500px' height='500px' /></Link></div>
                         )}
                         </div>
                         

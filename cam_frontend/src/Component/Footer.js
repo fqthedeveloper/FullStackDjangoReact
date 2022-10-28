@@ -25,19 +25,18 @@ function Footer() {
 
     return (
 
-        <footer className='py-3 my-5 bg-primary'>
-            <ul className='nav justify-content-center text-white border-bottom pb-3 mb-3 '>
+        <div className='App mt-3'>
 
-                <li className='nav-item'><Link to="/" className='nav-link px-2 text-white '>Home</Link></li>
+            <footer className='py-3 my-1 bg-primary '>
 
-                {/* {pagesData && pagesData.map((row, index) =>
-                  
-                   <li className='nav-item'><Link to={'/page/${row.id}${row.url}'} key={index} className='nav-link px-2 text-white' >{row.title}</Link></li>
-                )} */}
-                 <li className='nav-item'><Link to="/contact" className='nav-link px-2 text-white '>Contect US</Link></li>
-            </ul>
-            <b> © 2022 Copyright: <a className='text-dark' href='/#'>Cammra Web </a> </b>
-        </footer>
+                <ul className='nav justify-content-center text-white border-bottom pb-3 mb-3 '>
+
+                    <li className='nav-item'><Link to="/" className='nav-link px-2 text-white '>Home</Link></li>
+                    <li className='nav-item'><Link to="/contact" className='nav-link px-2 text-white '>Contect US</Link></li>
+                </ul>
+                <b> © 2022 Copyright: <Link className='text-white' to='/'>Cammra Web </Link></b>
+            </footer>
+        </div>
     );
 }
 

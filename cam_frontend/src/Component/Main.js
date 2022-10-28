@@ -25,12 +25,11 @@ function Main() {
             <Route path="/proudect" element={<Proudect />} />
 
         </Switch>
-        <Footer />
+        <Footer  />
       </div>
 
   );
 }
-
 
 
 export default Main;
