@@ -1,27 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useState, useEffect } from 'react';
-// import axios from 'axios';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
-// const baseUrl = 'http://127.0.0.1:8000/api';
+const baseUrl = 'http://127.0.0.1:8000/api';
 
 function Footer() {
-    // const [ pagesData, setPagesData] = useState([]);
+    const [ sociallinkData, setSocialLink] = useState([]);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     try {
-    //             axios.get(baseUrl + '/pages/')
-    //             .then((res) => {
-    //                 setPagesData(res.data)
+        try {
+                axios.get(baseUrl + '/sociallink/')
+                .then((res) => {
+                    setSocialLink(res.data)
 
-    //             });
+                });
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }, []);
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
 
     return (
 
@@ -34,15 +34,21 @@ function Footer() {
                     <li className='nav-item'><Link to="/" className='nav-link px-2 text-white '>Home</Link></li>
                     <li className='nav-item'><Link to="/contact" className='nav-link px-2 text-white '>Contect US</Link></li>
                 </ul>
+
+                {sociallinkData && sociallinkData.map((sociallink, index) =>
                 <ul>
-                <Link to='/'><i  class="bi bi-twitter fa-2x"></i></Link>
-                     &nbsp; &nbsp; &nbsp; 
-                     <Link to='/'><i class="bi bi-instagram fa-2x"></i></Link>
-                     &nbsp; &nbsp; &nbsp; 
-                     <Link to='/'><i class="bi bi-whatsapp fa-2x"></i></Link>
-                     &nbsp; &nbsp; &nbsp; 
-                     <Link to='/'><i class="bi bi-facebook fa-2x"></i></Link>
+                
+
+                     <a href={sociallink.twiter}><i  class="bi bi-twitter fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.instagram}><i class="bi bi-instagram fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.whatsapp}><i class="bi bi-whatsapp fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.facebook}><i class="bi bi-facebook fa-2x"></i></a> 
+                                
                 </ul>
+                )}
                 <b> © 2022 Copyright: <Link className='text-white' to='/'>Cammra Web </Link></b>
             </footer>
         </div>
