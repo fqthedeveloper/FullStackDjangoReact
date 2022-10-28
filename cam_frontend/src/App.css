@@ -4,6 +4,7 @@
 .Home{
   margin-top: 2px;
   margin-bottom: 2px;
+  background-color: azure;
 }
 
 .Header{
@@ -12,4 +13,8 @@
 .Service{
   margin-bottom: 10px;
   margin-top: 10px;
+  background-color: bisque;
+}
+footer{
+    position: bottom;    
 }
