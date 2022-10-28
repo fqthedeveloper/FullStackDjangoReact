@@ -41,3 +41,9 @@ class RatingAdmin(admin.ModelAdmin):
     list_display = ('custamer', 'prudect', 'stars')
 
 admin.site.register(models.Rating, RatingAdmin)
+
+
+class SocialLinkadmin(admin.ModelAdmin):
+    list_display = ('facebook', 'instagram', 'twiter','whatsapp')
+
+admin.site.register(models.SocialLink, SocialLinkadmin)

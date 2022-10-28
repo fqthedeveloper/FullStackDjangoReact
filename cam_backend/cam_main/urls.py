@@ -10,4 +10,5 @@ urlpatterns = [
     path('proudect/',views.ProudctList.as_view()),
     path('custamerlist/',views.Custamerlist.as_view()),
     path('custamerlist/<int:pk>',views.Custameradd.as_view()),
+    path('sociallink/',views.SocialLink.as_view()),
 ]

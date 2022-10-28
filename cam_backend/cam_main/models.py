@@ -93,3 +93,22 @@ class Rating(models.Model):
     # class Meta:
     #     unique_together = (('prudect','custamer'),)
     #     index_together = (('prudect','custamer'),)
+
+
+class SocialLink(models.Model):
+    facebook = models.CharField(max_length=200)
+    instagram = models.CharField(max_length=200)
+    twiter = models.CharField(max_length=200)
+    whatsapp = models.CharField(max_length=200)
+
+    def __str__(self) :
+        return self.facebook
+    
+    def __str__(self) :
+        return self.instagram
+    
+    def __str__(self) :
+        return self.twiter
+    
+    def __str__(self) :
+        return self.whatsapp

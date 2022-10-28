@@ -44,3 +44,9 @@ class RatingSerializer(serializers.ModelSerializer) :
     class Meta :
         model = models.Rating
         fields = ['id', 'custamer', 'prudect','stars']
+
+
+class SocialLinkSerializer(serializers.ModelSerializer) :
+    class Meta :
+        model = models.SocialLink
+        fields = ['id', 'facebook', 'instagram','twiter','whatsapp']

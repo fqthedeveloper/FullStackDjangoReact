@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import BannersSerializer, CustamerSerializer, ServicesSerializer, GallerySerializer, ContactSerializer , PrudectSerializer
+from .serializers import BannersSerializer, CustamerSerializer, ServicesSerializer, GallerySerializer, ContactSerializer , PrudectSerializer, SocialLinkSerializer
 from rest_framework import generics
 from rest_framework import permissions
 from . import models
@@ -57,3 +57,8 @@ class Custamerlist(generics.ListCreateAPIView):
 class Custameradd(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Custamer.objects.all()
     serializer_class = CustamerSerializer
+
+
+class SocialLink(generics.ListAPIView):
+    queryset = models.SocialLink.objects.all()
+    serializer_class = SocialLinkSerializer
