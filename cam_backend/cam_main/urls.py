@@ -8,6 +8,6 @@ urlpatterns = [
     path('gallery/', views.GalleryList.as_view()),
     path('contact/',views.ContactList.as_view()),
     path('proudect/',views.ProudctList.as_view()),
-    path('custameradd/<int:pk>',views.Custameradd.as_view()),
-    path('custameradd/<int:pk>',views.Custameradd.as_view()),
+    path('custamerlist/',views.Custamerlist.as_view()),
+    path('custamerlist/<int:pk>',views.Custameradd.as_view()),
 ]

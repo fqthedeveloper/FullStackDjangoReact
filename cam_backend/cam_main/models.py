@@ -35,7 +35,7 @@ class Gallery(models.Model) :
     img = models.ImageField(upload_to="gallery/", null=True)
 
     def __str__(self) :
-        return self.title
+        return self.text_alt
 
     def image_tag(self) :
         return mark_safe('<img src="%s" width="80" />' % (self.img.url))

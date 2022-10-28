@@ -49,14 +49,11 @@ class ProudctList(generics.ListCreateAPIView):
     serializer_class = PrudectSerializer
 
 
+class Custamerlist(generics.ListCreateAPIView):
+    queryset = models.Custamer.objects.all()
+    serializer_class = CustamerSerializer
+
 
 class Custameradd(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Custamer.objects.all()
     serializer_class = CustamerSerializer
-
-
-
-class Custamerlist(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Custamer.objects.all()
-    serializer_class = CustamerSerializer
-
