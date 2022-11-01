@@ -3,12 +3,12 @@ import React from "react";
 import Review from './Review.css';
 
 
-function Header() {
-
+function Header(){
 
     return (
+
                 <div style={Review} className="bg-primary">
-                    <nav className="navbar navbar-dark" >
+                    <nav className="navbar navbar-primary" >
                         <div className="container-fluid">
                             <a className="navbar-brand" href="/">Cammra Web</a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -19,6 +19,7 @@ function Header() {
                                     <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Cammra Web</h5>
                                     <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
+                                
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
@@ -45,6 +46,7 @@ function Header() {
                                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                             <button className="btn btn-success" type="submit">Search</button>
                                     </form> */}
+                                    
                                 </div>
                             </div>
                         </div>

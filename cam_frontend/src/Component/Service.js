@@ -36,10 +36,10 @@ function Service() {
                     <div className='row row-cols-3 row-cols-md-3 g-4'>
 
                         {serviceData && serviceData.map((service, index) =>
-                            <div className="card">
-                                <img key={index} src={service.img} className="card-img-top" alt={service.alt_text} />
+                            <div key={index} className="card">
+                                <img src={service.img} className="card-img-top" alt={service.alt_text} />
                                 <div className="card-body">
-                                    <h5 key={index} className="card-title">{service.title}</h5>
+                                    <h5 className="card-title">{service.title}</h5>
                                     <p className="card-text">{service.detail}</p>
                                 </div>
                             </div>

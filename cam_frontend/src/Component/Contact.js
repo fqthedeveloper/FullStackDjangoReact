@@ -88,7 +88,7 @@ function Contact() {
           </div>
           </div>
 
-          <div className='col-4 offset-1'>
+          <div className='col-4 offset-1 text-white'>
             <h3 className='boder-bottom'> Address </h3>
             <ul className='m-0 p-0' style={listStyle}>
               <li>

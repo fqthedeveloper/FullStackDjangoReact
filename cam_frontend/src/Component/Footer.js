@@ -36,20 +36,20 @@ function Footer() {
                 </ul>
 
                 {sociallinkData && sociallinkData.map((sociallink, index) =>
-                <ul>
+                <ul key={index}>
                 
 
-                     <a href={sociallink.twiter}><i  class="bi bi-twitter fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.instagram}><i class="bi bi-instagram fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.whatsapp}><i class="bi bi-whatsapp fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.facebook}><i class="bi bi-facebook fa-2x"></i></a> 
+                     <a href={sociallink.twiter}><i  className="bi bi-twitter fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.instagram}><i className="bi bi-instagram fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.whatsapp}><i className="bi bi-whatsapp fa-2x"></i></a>
+                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                     <a href={sociallink.facebook}><i className="bi bi-facebook fa-2x"></i></a > 
                                 
                 </ul>
                 )}
-                <b> © 2022 Copyright: <Link className='text-white' to='/'>Cammra Web </Link></b>
+                <b> © 2023 Copyright: <Link className='text-white' to='/'>Cammra Web </Link></b>
             </footer>
         </div>
     );

@@ -56,11 +56,11 @@ function CustamersReview() {
     <div className="row testimonial-three testimonial-three--col-three">
     {custamerData && custamerData.map((custamer, index) =>
         
-            <div className="col-md-4 testimonial-three-col">
+            <div key={custamer.id} className="col-md-4 testimonial-three-col">
             
                 <div className="testimonial-inner">
                     <div className="testimonial-image" itemProp="image">
-                        <img key={index} width="200" height="200" alt={custamer.alt_text} src={custamer.img} />
+                        <img  width="200" height="200" alt={custamer.alt_text} src={custamer.img} />
                     </div>
                     <div className="testimonial-content">
                         <p>

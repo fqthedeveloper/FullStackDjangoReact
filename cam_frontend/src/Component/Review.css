@@ -1,4 +1,41 @@
-body{margin-top:1px;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+body {
+    background: linear-gradient(to bottom, #000428, #004683);
+    animation: background-color 10s;
+    min-height: 100vh;
+}
+
+@keyframes background-color {
+    0% {
+        background: linear-gradient(to bottom, #000428, #004683);
+    }
+
+    25% {
+        background: linear-gradient(135deg, #1a4223, #5ee95e);
+    }
+
+    50% {
+        background: linear-gradient(to bottom, #421a31, #e95ed2);
+    }
+
+    100% {
+        background: linear-gradient(-135deg, #fae37d, #881da8, #20668f);
+    }
+
+}
+
+.container {
+    margin-top: 80px;
+}
 .btn.btn-outline-primary:hover, .bg-primary {
     background-color: #0cb4ce !important;
 }

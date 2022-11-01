@@ -22,6 +22,7 @@ function Main() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/custamer" element={<CustamersReview />} />
+            
             <Route path="/proudect" element={<Proudect />} />
 
         </Switch>

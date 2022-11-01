@@ -52,9 +52,9 @@ function Home() {
 
                 <div className="carousel-inner">
                     {bannerData && bannerData.map((banner, index) =>
-                        <div className="carousel-item active">
+                        <div key={index} className="carousel-item active">
 
-                            <img key={index} src={banner.img} className="img-fluid shadow-4" alt={banner.alt_text} />
+                            <img src={banner.img} className="img-fluid shadow-4" alt={banner.alt_text} />
                         </div>
                     )}
                 </div>
@@ -69,27 +69,17 @@ function Home() {
                 </button>
 
             </div>
-            <div className="container md-0 bg-light p-1">
+            <div className="mt-3 md-3 bg-light p-1 container">
                 <Service />
             </div>
             
-            <div className="container mt-0 md-2 bg-light p-1">
+            <div className=" mt-3 md-3 bg-light p-1 container">
                 <Gallery />
             </div>
 
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-                    <div className="carousel-inner">
-                        < Review />
-                    </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                    </div>
+            <div className='mt-3 md-3 bg-light p-1 container'>
+                < Review />
+            </div>                   
 
         </div>
 
