@@ -5,6 +5,9 @@ import Service from './Service'
 import Gallery from './Gallery'
 import Review from './CustamersReview'
 import {Planets} from 'react-preloaders2';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import avatar from './logo512.png'
+
 
 
 const baseUrl = 'http://127.0.0.1:8000/api';
@@ -44,10 +47,11 @@ function Home() {
       }, []);
 
     return (
-
         
         <div className='App'>
             <Planets customLoading={loading} animation="slide" time={3000} />
+            <FloatingWhatsApp phoneNumber={7776062165} accountName={'Faizan Qureshi'} avatar={avatar} notificationSound={true} chatboxClassName='floating-whatsapp-chatbox' allowClickAway={true} placeholder={'Type a message..'} statusMessage={'Contact You'} chatMessage={'Hello there! 🤝 \nHow can we help You?'} />
+            <div className='flow'>
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
 
                 <div className="carousel-inner">
@@ -69,18 +73,18 @@ function Home() {
                 </button>
 
             </div>
-            <div className="mt-3 md-3 bg-light p-1 container">
+            <div className="mt-5 md-5 ">
                 <Service />
             </div>
             
-            <div className=" mt-3 md-3 bg-light p-1 container">
+            <div className="mt-5 md-5 ">
                 <Gallery />
             </div>
 
-            <div className='mt-3 md-3 bg-light p-1 container'>
+            <div className='md-5 mt-5'>
                 < Review />
             </div>                   
-
+            </div>
         </div>
 
     );

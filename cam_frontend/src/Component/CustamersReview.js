@@ -13,7 +13,7 @@ function CustamersReview() {
   // let [customer_id] =  useParams();
 
   useEffect(() => {
-    document.title = "Review Page";
+    document.title = "Reviews Page";
 
     try {
       axios.get(baseUrl + "/custamerlist/").then((res) => {
@@ -56,19 +56,19 @@ function CustamersReview() {
     <div className="row testimonial-three testimonial-three--col-three">
     {custamerData && custamerData.map((custamer, index) =>
         
-            <div key={custamer.id} className="col-md-4 testimonial-three-col">
+            <div key={index} className="col-md-4 testimonial-three-col">
             
                 <div className="testimonial-inner">
                     <div className="testimonial-image" itemProp="image">
-                        <img  width="200" height="200" alt={custamer.alt_text} src={custamer.img} />
+                        <img  width="80" height="80" alt={custamer.alt_text} src={custamer.img} />
                     </div>
                     <div className="testimonial-content">
-                        <p>
+                        <p className="text-secondary">
                             {custamer.reviwe}
                         </p>
                     </div>
                     <div className="testimonial-meta">
-                        <strong className="testimonial-name" itemProp="name">{custamer.custamer_name}</strong>
+                        <strong className="testimonial-name text-secondary" itemProp="name">{custamer.custamer_name}</strong>
                     </div>
                 </div>
             

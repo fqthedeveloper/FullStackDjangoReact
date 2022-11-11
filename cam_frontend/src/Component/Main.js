@@ -9,6 +9,7 @@ import Service from './Service';
 import CustamersReview from './CustamersReview';
 import Gallery from './Gallery';
 import Proudect from './Proudect';
+import ReviewAdd from './ReviewAdd';
 
 
 function Main() {
@@ -22,7 +23,7 @@ function Main() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/custamer" element={<CustamersReview />} />
-            
+            <Route path='/reviewadd' element={<ReviewAdd />} />
             <Route path="/proudect" element={<Proudect />} />
 
         </Switch>

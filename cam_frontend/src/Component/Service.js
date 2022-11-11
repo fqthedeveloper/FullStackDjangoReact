@@ -12,7 +12,7 @@ function Service() {
 
     useEffect(() => {
 
-        document.title = 'Service Page';
+        document.title = 'Services Page';
 
         try {
             axios.get(baseUrl + '/service/')
@@ -30,7 +30,7 @@ function Service() {
             <div className='App'>
                 <div className="container">
                     <div className="intro">
-                        <h2 className="text-center"> Service </h2>
+                        <h2 className="text-center text-white"> Service </h2>
                         <p className="text-center"> </p>
                     </div>
                     <div className='row row-cols-3 row-cols-md-3 g-4'>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {AnimatedSocialIcon} from 'react-animated-social-icons'
 
 
 const baseUrl = 'http://127.0.0.1:8000/api';
@@ -27,7 +28,7 @@ function Footer() {
 
         <div className='App mt-3'>
 
-            <footer className='py-3 my-1 bg-primary '>
+            <footer className='py-3 my-1 '>
 
                 <ul className='nav justify-content-center text-white border-bottom pb-3 mb-3 '>
 
@@ -37,19 +38,17 @@ function Footer() {
 
                 {sociallinkData && sociallinkData.map((sociallink, index) =>
                 <ul key={index}>
-                
 
-                     <a href={sociallink.twiter}><i  className="bi bi-twitter fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.instagram}><i className="bi bi-instagram fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.whatsapp}><i className="bi bi-whatsapp fa-2x"></i></a>
-                                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                     <a href={sociallink.facebook}><i className="bi bi-facebook fa-2x"></i></a > 
-                                
+                     <AnimatedSocialIcon brandName="facebook"  url={sociallink.facebook} hoverColor="#3b5998" animation="grow" defaultColor="black"  width="2em"  animationDuration={0.8} style={{padding: '3em'}} />
+
+                     <AnimatedSocialIcon brandName="instagram"  url={sociallink.instagram} hoverColor="#8a3ab9" animation="grow" defaultColor="black"  width="2em"  animationDuration={0.8} style={{padding: '3em'}} />
+
+                     <AnimatedSocialIcon brandName="twitter"  url={sociallink.twitter} hoverColor="#00acee" animation="grow" defaultColor="black"  width="2em"  animationDuration={0.8} style={{padding: '3em'}} />
+
+                                                 
                 </ul>
                 )}
-                <b> © 2023 Copyright: <Link className='text-white' to='/'>Cammra Web </Link></b>
+                <b className='text-white s-3'>&copy; 2023 Copyright: &nbsp;<Link className='text-white' to='/'>Cammra Web </Link></b>
             </footer>
         </div>
     );
